@@ -1,0 +1,86 @@
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="4dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CustomActionBar"
+            android:id="@+id/btnCustomActionBarActivity"
+            android:onClick="openProject"
+            android:textSize="12sp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="9-PatchButton"
+            android:id="@+id/btnNinePatchButtonActivity"
+            android:onClick="openProject"
+            android:textSize="12sp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Storage"
+            android:id="@+id/btnStorage"
+            android:onClick="openProject"
+            android:textSize="12sp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Intents"
+            android:id="@+id/btnIntents"
+            android:onClick="openProject"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Async Tasks"
+            android:id="@+id/btnAsyncTasks"
+            android:textSize="12sp"
+            android:onClick="openProject" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="XML Parse"
+            android:id="@+id/btnXmlParse"
+            android:textSize="12sp"
+            android:onClick="openProject"/>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Linkify"
+            android:id="@+id/btnLinkify"
+            android:textSize="12sp"
+            android:onClick="openProject"/>
+
+    </LinearLayout>
+</LinearLayout>

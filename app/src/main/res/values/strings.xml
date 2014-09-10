@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MyAndroidSandbox</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_custom_action_bar">MyTitle(CustomActionBar)</string>
+    <string name="title_activity_nine_patch_button">NinePatchButtonActivity</string>
+    <string name="title_activity_full_screen">FullScreenActivity</string>
+    <string name="title_activity_storage">StorageActivity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_intents">IntentsActivity</string>
+    <string name="title_activity_intent_receiver">IntentReceiverActivity</string>
+    <string name="title_activity_asynk_tasks">AsynkTasksActivity</string>
+    <string name="title_activity_populate_list_view">PopulateListViewActivity</string>
+    <string name="title_activity_download_images">DownloadImagesActivity</string>
+    <string name="title_activity_download_images_with_fragment">DownloadImagesWithFragmentActivity</string>
+
+    <!-- Arrays for Async Activities -->
+    <array name="async_tasks">
+        <item>Populate ListView</item>
+        <item>Download Images</item>
+        <item>Download Images w/ Fragment</item>
+    </array>
+    <array name="async_activities">
+        <item>.asynctasks.PopulateListViewActivity</item>
+        <item>.asynctasks.DownloadImagesActivity</item>
+        <item>.asynctasks.DownloadImagesWithFragmentActivity</item>
+    </array>
+
+    <string-array name="async_items">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <item>Item 4</item>
+        <item>Item 5</item>
+        <item>Item 6</item>
+    </string-array>
+    <string-array name="async_imagesUrls" formatted="false">
+        <item>http://im.rediff.com/money/2013/oct/08building18.jpg</item>
+        <item>http://4.bp.blogspot.com/-aX_WqmURDnA/UKA5n459m1I/AAAAAAAAAOE/qpSdSmKFcHk/s640/Looking_Up_at_Empire_State_Building.JPG</item>
+        <item>http://www.chicagoarchitecture.info/LegacyImages/B/BeckerBuilding-Jul08-009a.jpg</item>
+        <item>http://www.paragonrentals.ca/data/frontImages/gallery/product_image/Commercial-Building-4.jpg</item>
+        <item>http://blog.arthistoryabroad.com/wp-content/uploads/2012/10/World-Building-of-_2363072k.jpeg</item>
+        <item>http://somuchtoseesomuchtodo.files.wordpress.com/2011/06/singer-building.jpg</item>
+    </string-array>
+    <!-- End of Async arrays -->
+
+    <string name="title_activity_linkify">LinkifyActivity</string>
+    <string name="linkify_text">This is just a test of Linkify resource\nfrom Android SDK.\n\nPatterns: \nPersonalized: CamelCase text,\nPhone: 16-99310-4417,\nEmail: muriloap@netsite.com.br,\nUrl: www.globo.com" </string>
+    <string name="title_activity_xml_parse">XmlParseActivity</string>
+
+    <string-array name="xmlParseListOptions">
+        <item>DOM Parse</item>
+        <item>SAX Parse</item>
+        <item>StAX</item>
+    </string-array>
+
+    <string name="title_activity_xml_sax_parse">XmlSaxParseActivity</string>
+
+</resources>

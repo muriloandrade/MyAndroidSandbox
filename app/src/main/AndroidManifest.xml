@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.murilo.myandroidsandbox" >
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/sandbox_logo"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.Light" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".customactionbar.CustomActionBarActivity"
+            android:label="@string/title_activity_custom_action_bar"
+            android:logo="@drawable/country"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/CustomActionBarTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.murilo.myandroidsandbox.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ninepatchbutton.NinePatchButtonActivity"
+            android:label="@string/title_activity_nine_patch_button"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.murilo.myandroidsandbox.MainActivity" />
+        </activity>
+        <activity
+            android:name=".storage.StorageActivity"
+            android:label="@string/title_activity_storage"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.murilo.myandroidsandbox.MainActivity" />
+        </activity>
+        <activity
+            android:name=".intents.IntentsActivity"
+            android:label="@string/title_activity_intents"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.murilo.myandroidsandbox.MainActivity" />
+        </activity>
+        <activity
+            android:name=".intents.IntentReceiverActivity"
+            android:label="@string/title_activity_intent_receiver"
+            android:parentActivityName=".intents.IntentsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.murilo.myandroidsandbox.intents.IntentsActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".asynctasks.AsyncTasksActivity"
+            android:label="@string/title_activity_asynk_tasks"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.murilo.myandroidsandbox.MainActivity" />
+        </activity>
+        <activity
+            android:name=".asynctasks.PopulateListViewActivity"
+            android:label="@string/title_activity_populate_list_view"
+            android:parentActivityName=".asynctasks.AsyncTasksActivity"
+            android:theme="@android:style/Theme.Holo" >
+            <intent-filter>
+                <action android:name="POPULATE_LISTVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.murilo.myandroidsandbox.asynctasks.AsyncTasksActivity" />
+        </activity>
+        <activity
+            android:name=".asynctasks.DownloadImagesActivity"
+            android:label="@string/title_activity_download_images"
+            android:parentActivityName=".asynctasks.AsyncTasksActivity" >
+            <intent-filter>
+                <action android:name="DOWNLOAD_IMAGES" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.murilo.myandroidsandbox.asynctasks.AsyncTasksActivity" />
+        </activity>
+        <activity
+            android:name=".asynctasks.DownloadImagesWithFragmentActivity"
+            android:label="@string/title_activity_download_images_with_fragment"
+            android:parentActivityName=".asynctasks.AsyncTasksActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.murilo.myandroidsandbox.asynctasks.AsyncTasksActivity" />
+        </activity>
+        <activity
+            android:name=".linkify.LinkifyActivity"
+            android:label="@string/title_activity_linkify"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.murilo.myandroidsandbox.MainActivity" />
+        </activity>
+        <activity
+            android:name=".xmlparse.XmlParseActivity"
+            android:label="@string/title_activity_xml_parse"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.murilo.myandroidsandbox.MainActivity" />
+        </activity>
+        <activity
+            android:name=".xmlparse.domparse.XmlDomParseActivity"
+            android:label="@string/title_activity_xml_parse"
+            android:parentActivityName=".xmlparse.XmlParseActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.murilo.myandroidsandbox.xmlparse.XmlParseActivity" />
+        </activity>
+        <activity
+            android:name=".xmlparse.saxparse.XmlSaxParseActivity"
+            android:label="@string/title_activity_xml_sax_parse"
+            android:parentActivityName=".xmlparse.XmlParseActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.murilo.myandroidsandbox.xmlparse.XmlParseActivity" />
+        </activity>
+    </application>
+
+</manifest>
