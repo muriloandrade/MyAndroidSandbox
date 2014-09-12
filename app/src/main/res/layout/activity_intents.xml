@@ -71,7 +71,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
 
             <EditText
                 android:layout_width="wrap_content"
@@ -80,8 +81,7 @@
                 android:ems="10"
                 android:id="@+id/phoneNumbEdit"
                 android:layout_weight="1"
-                android:hint="Phone number"
-                android:layout_marginBottom="8dp" />
+                android:hint="Phone number" />
 
             <Button
                 style="?android:attr/buttonStyleSmall"
@@ -91,12 +91,15 @@
                 android:id="@+id/callButton"
                 android:layout_weight="1"
                 android:onClick="call" />
+
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
 
             <Button
                 style="?android:attr/buttonStyleSmall"
@@ -104,8 +107,7 @@
                 android:layout_height="wrap_content"
                 android:text="Pick Contact"
                 android:id="@+id/pickContactButton"
-                android:onClick="pickContact"
-                android:layout_marginBottom="8dp" />
+                android:onClick="pickContact"/>
 
             <TextView
                 android:layout_width="fill_parent"
@@ -115,7 +117,12 @@
                 android:gravity="center_vertical"/>
         </LinearLayout>
 
-
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Take a picture"
+            android:id="@+id/takePictureButton"
+            android:onClick="takePicture" />
 
     </LinearLayout>
 

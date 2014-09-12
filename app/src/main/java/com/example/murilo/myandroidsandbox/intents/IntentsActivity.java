@@ -1,15 +1,15 @@
 package com.example.murilo.myandroidsandbox.intents;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.provider.MediaStore;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.EditText;
@@ -18,12 +18,17 @@ import android.widget.TextView;
 import com.example.murilo.myandroidsandbox.Msg;
 import com.example.murilo.myandroidsandbox.R;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
 public class IntentsActivity extends Activity {
 
     public static final int PICK_CONTACT_REQUEST = 1;
+    public static final int TAKE_PICTURE_REQUEST = 2;
 
     TextView contactText;
     EditText phoneNumbEdit;
@@ -70,7 +75,6 @@ public class IntentsActivity extends Activity {
         startActivity(chooser);
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void sendImage(View view) {
 
         intent = new Intent(Intent.ACTION_SEND);
@@ -124,13 +128,50 @@ public class IntentsActivity extends Activity {
         intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
         Intent chooser = Intent.createChooser(intent, "Pick contact");
 
-        startActivityForResult(chooser, PICK_CONTACT_REQUEST);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(chooser, PICK_CONTACT_REQUEST);
+        }
     }
 
     public void wifiSettings (View view) {
 
         intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
         startActivity(intent);
+    }
+
+    public void gotoReceiver(View view) {
+        try {
+
+            intent = new Intent(this, Class.forName(getPackageName() + ".intents.IntentReceiverActivity"));
+            startActivity(intent);
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void takePicture(View view) {
+
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp;
+        File imageFile = null;
+        try {
+            imageFile = File.createTempFile(imageFileName, ".jpg", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
+
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(imageFile));
+            startActivityForResult(intent, TAKE_PICTURE_REQUEST);
+
+        } else {
+
+            Msg.t(this, "No app to perform this action");
+        }
     }
 
     @Override
@@ -144,7 +185,7 @@ public class IntentsActivity extends Activity {
                 Uri contactUri = data.getData();
 
                 String[] projection = { Phone.DISPLAY_NAME,
-                                        Phone.NUMBER };
+                        Phone.NUMBER };
 
                 Cursor cursor = getContentResolver().query(contactUri, projection, null, null, null);
                 StringBuilder stringBuilder = new StringBuilder();
@@ -159,19 +200,12 @@ public class IntentsActivity extends Activity {
                 contactText.setText(stringBuilder.toString());
 
             } else {
-                 Msg.t(this, "Could not get contact");
+                Msg.t(this, "Could not get contact");
             }
+        } else if (requestCode == TAKE_PICTURE_REQUEST && resultCode == RESULT_OK) {
+
+                Msg.t(this, "Picture saved to Gallery");
         }
     }
 
-    public void gotoReceiver(View view) {
-        try {
-
-            intent = new Intent(this, Class.forName(getPackageName() + ".intents.IntentReceiverActivity"));
-            startActivity(intent);
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 }
