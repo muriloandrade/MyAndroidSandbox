@@ -1,6 +1,9 @@
-package com.example.murilo.myandroidsandbox.xmlparse.saxparse;
+package com.example.murilo.myandroidsandbox.xmlparse.pullparse;
 
 import android.os.AsyncTask;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,9 +11,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 
 /**
  * Created by Murilo on 09/09/2014.
@@ -91,12 +91,49 @@ public class MyTask extends AsyncTask<Void, Void, ArrayList<HashMap<String, Stri
 
     private ArrayList<HashMap<String, String>> processXml(InputStream is) throws Exception{
 
-        SaxHandler handler = new SaxHandler();
+        ArrayList<HashMap<String, String>> result = new ArrayList<HashMap<String, String>>();
+        HashMap<String, String> currentHashmap = null;
 
-        SAXParserFactory factory = SAXParserFactory.newInstance();
-        SAXParser parser = factory.newSAXParser();
-        parser.parse(is, handler);
+        XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+        XmlPullParser parser = factory.newPullParser();
+        parser.setInput(is, null);
 
-        return handler.result;
+        int eventType = parser.getEventType();
+        String tagText = null;
+
+        while (eventType != XmlPullParser.END_DOCUMENT) {
+
+            if (eventType == XmlPullParser.START_TAG) {
+
+                if (parser.getName().equals("item")) {
+                    currentHashmap = new HashMap<String, String>();
+                } else if (parser.getName().equals("media:thumbnail")) {
+                    currentHashmap.put("imageURL", parser.getAttributeValue(null, "url"));
+                }
+
+            } else if (eventType == XmlPullParser.TEXT) {
+
+                tagText = parser.getText();
+
+            } else if (eventType == XmlPullParser.END_TAG) {
+
+                if (parser.getName().equals("item")) {
+                    if (currentHashmap != null) {
+                        result.add(currentHashmap);
+                    }
+                } else if (parser.getName().equals("title")) {
+                    if (currentHashmap != null) {
+                        currentHashmap.put("title", tagText);
+                    }
+                } else if (parser.getName().equals("pubDate")) {
+                    if (currentHashmap != null) {
+                        currentHashmap.put("pubDate", tagText);
+                    }
+                }
+            }
+            eventType = parser.next();
+        }
+
+        return result;
     }
 }

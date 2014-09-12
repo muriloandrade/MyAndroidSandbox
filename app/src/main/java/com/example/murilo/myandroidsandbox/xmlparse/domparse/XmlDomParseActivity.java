@@ -25,7 +25,7 @@ public class XmlDomParseActivity extends Activity implements ResultsCallBack {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_xml_dom_parse);
+        setContentView(R.layout.activity_xml_generic_parse);
 
         articlesListView = (ListView) findViewById(R.id.xmlDomParseListview);
         loadingLayout = (LinearLayout) findViewById(R.id.xmlDomParseLoadingLayout);

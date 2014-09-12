@@ -32,7 +32,7 @@ public class XmlParseActivity extends Activity implements AdapterView.OnItemClic
                 break;
             case 1: className = ".xmlparse.saxparse.XmlSaxParseActivity";
                 break;
-            case 2: className = ".xmlparse.staxparse.XmlStaxParseActivity";
+            case 2: className = ".xmlparse.pullparse.XmlPullParseActivity";
                 break;
         }
 

@@ -53,9 +53,11 @@
     <string-array name="xmlParseListOptions">
         <item>DOM Parse</item>
         <item>SAX Parse</item>
-        <item>StAX</item>
+        <item>Pull Parse</item>
     </string-array>
 
     <string name="title_activity_xml_sax_parse">XmlSaxParseActivity</string>
+    <string name="title_activity_xml_pull_parse">XmlPullParseActivity</string>
+    <string name="title_activity_multimedia">MultimediaActivity</string>
 
 </resources>

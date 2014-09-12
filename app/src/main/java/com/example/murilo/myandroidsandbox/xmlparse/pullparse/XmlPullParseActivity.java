@@ -1,4 +1,4 @@
-package com.example.murilo.myandroidsandbox.xmlparse.saxparse;
+package com.example.murilo.myandroidsandbox.xmlparse.pullparse;
 
 import android.app.Activity;
 import android.content.Context;
@@ -16,7 +16,7 @@ import com.example.murilo.myandroidsandbox.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class XmlSaxParseActivity extends Activity implements ResultsCallBack {
+public class XmlPullParseActivity extends Activity implements ResultsCallBack {
 
     private static final String FRAGMENT_TAG = "PlaceholderFragment";
     PlaceholderFragment fragment;
@@ -48,7 +48,7 @@ public class XmlSaxParseActivity extends Activity implements ResultsCallBack {
     @Override
     public void onProgressUpdate() {
 
-
+        
     }
 
     @Override

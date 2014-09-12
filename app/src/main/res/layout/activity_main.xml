@@ -82,5 +82,14 @@
             android:textSize="12sp"
             android:onClick="openProject"/>
 
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Multimedia"
+            android:id="@+id/btnMultimedia"
+            android:textSize="12sp"
+            android:onClick="openProject"/>
+
     </LinearLayout>
 </LinearLayout>

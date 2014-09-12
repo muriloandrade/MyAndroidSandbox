@@ -147,6 +147,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.murilo.myandroidsandbox.xmlparse.XmlParseActivity" />
         </activity>
+        <activity
+            android:name=".xmlparse.pullparse.XmlPullParseActivity"
+            android:label="@string/title_activity_xml_pull_parse"
+            android:parentActivityName=".xmlparse.XmlParseActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.murilo.myandroidsandbox.xmlparse.XmlParseActivity" />
+        </activity>
+        <activity
+            android:name=".multimedia.MultimediaActivity"
+            android:label="@string/title_activity_multimedia"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.murilo.myandroidsandbox.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

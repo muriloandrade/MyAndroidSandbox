@@ -31,6 +31,8 @@ public class MainActivity extends Activity {
                 break;
             case R.id.btnXmlParse: startProject("xmlparse.XmlParseActivity");
                 break;
+            case R.id.btnMultimedia: startProject("multimedia.MultimediaActivity");
+                break;
         }
     }
 

@@ -1,13 +1,16 @@
 package com.example.murilo.myandroidsandbox.intents;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -67,6 +70,7 @@ public class IntentsActivity extends Activity {
         startActivity(chooser);
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void sendImage(View view) {
 
         intent = new Intent(Intent.ACTION_SEND);
@@ -121,6 +125,12 @@ public class IntentsActivity extends Activity {
         Intent chooser = Intent.createChooser(intent, "Pick contact");
 
         startActivityForResult(chooser, PICK_CONTACT_REQUEST);
+    }
+
+    public void wifiSettings (View view) {
+
+        intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
+        startActivity(intent);
     }
 
     @Override
